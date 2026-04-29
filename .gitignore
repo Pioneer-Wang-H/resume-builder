@@ -1,0 +1,42 @@
+# Maven
+target/
+*.jar
+*.war
+*.class
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Uploads
+uploads/
+
+# Claude
+.claude/
+
+# Env
+.env
+.env.local
+
+# Personal files
+*.pdf
+

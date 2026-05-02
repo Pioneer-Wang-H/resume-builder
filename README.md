@@ -122,20 +122,18 @@ npm run dev
 
 ## 项目页面效果展示
 
- ### 素材仓库
-![素材仓库](${images}/素材仓库.png)
+### 素材仓库
+![素材仓库](backend/docs/screenshots/素材仓库.png)
 
- ### 简历管理与组装
-![简历管理](${images}/简历管理-17776868812524.png)
+### 简历管理与组装
+![简历管理](backend/docs/screenshots/简历管理.png)
 
-![简历组装](${images}/简历组装.png)
+![简历组装](backend/docs/screenshots/简历组装.png)
 
-  ### 简历预览与导出
- ### ![简历预览](${images}/简历预览.png)
-  ![投递追踪](./docs/screenshots/job-tracking.png)
+### 简历预览与导出
+![简历预览](backend/docs/screenshots/简历预览.png)
 
-![投递追踪](${images}/投递追踪.png)
+![简历导出](backend/docs/screenshots/简历导出.png)
 
-简历导出为PDF
-
-![简历导出](${images}/简历导出.png)
+### 投递追踪
+![投递追踪](backend/docs/screenshots/投递追踪.png)

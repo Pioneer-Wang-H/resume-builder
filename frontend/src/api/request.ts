@@ -17,6 +17,10 @@ request.interceptors.request.use((config) => {
 
 request.interceptors.response.use(
   (response) => {
+    // 二进制响应（如 PDF 导出）直接返回 blob，不走 JSON code 检查
+    if (response.config.responseType === 'blob') {
+      return response.data
+    }
     const res = response.data
     if (res.code === 401) {
       localStorage.removeItem('token')

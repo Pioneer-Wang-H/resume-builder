@@ -4,7 +4,7 @@
 
     <el-form :inline="true" style="margin-bottom: 16px">
       <el-form-item label="操作模块">
-        <el-select v-model="filterModule" placeholder="全部" clearable @change="loadData">
+        <el-select v-model="filterModule" placeholder="全部" clearable @update:model-value="loadData">
           <el-option label="素材管理" value="素材管理" />
           <el-option label="简历管理" value="简历管理" />
           <el-option label="投递管理" value="投递管理" />

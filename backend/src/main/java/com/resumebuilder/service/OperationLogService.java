@@ -1,40 +1,34 @@
 package com.resumebuilder.service;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.resumebuilder.entity.OperationLog;
 import com.resumebuilder.mapper.OperationLogMapper;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 
 @Service
 @RequiredArgsConstructor
 public class OperationLogService {
 
+    private static final Logger log = LoggerFactory.getLogger(OperationLogService.class);
     private final OperationLogMapper operationLogMapper;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
 
     @Async
-    public void save(String module, String operation, Object[] args) {
+    public void save(String module, String operation, Object[] args, Long userId, String ip) {
         try {
             OperationLog entity = new OperationLog();
             entity.setModule(module);
             entity.setOperation(operation);
-            entity.setUserId(StpUtil.getLoginIdAsLong());
+            entity.setUserId(userId);
             entity.setParams(objectMapper.writeValueAsString(args));
-
-            ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-            if (attrs != null) {
-                HttpServletRequest request = attrs.getRequest();
-                String ip = request.getHeader("X-Forwarded-For");
-                if (ip == null || ip.isEmpty()) ip = request.getRemoteAddr();
-                entity.setIp(ip);
-            }
+            entity.setIp(ip);
             operationLogMapper.insert(entity);
-        } catch (Exception ignored) {}
+        } catch (Exception e) {
+            log.error("保存操作日志失败", e);
+        }
     }
 }

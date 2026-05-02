@@ -119,7 +119,7 @@ async function handleExportPDF() {
   exporting.value = true
   try {
     const blob: any = await exportResumePdf(resumeId)
-    const url = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }))
+    const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     link.href = url
     link.download = `resume-${resumeId}.pdf`

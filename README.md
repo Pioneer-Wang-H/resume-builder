@@ -119,3 +119,23 @@ npm run dev
 | 文件导入 | `/api/file/upload-resume` `/api/file/import-resume` |
 | 操作日志 | `/api/operation-log` |
 | 投递记录 | `/api/job-application` |
+
+## 项目页面效果展示
+
+ ### 素材仓库
+![素材仓库](${images}/素材仓库.png)
+
+ ### 简历管理与组装
+![简历管理](${images}/简历管理-17776868812524.png)
+
+![简历组装](${images}/简历组装.png)
+
+  ### 简历预览与导出
+ ### ![简历预览](${images}/简历预览.png)
+  ![投递追踪](./docs/screenshots/job-tracking.png)
+
+![投递追踪](${images}/投递追踪.png)
+
+简历导出为PDF
+
+![简历导出](${images}/简历导出.png)
